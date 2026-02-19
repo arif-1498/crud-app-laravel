@@ -35,7 +35,7 @@
 
         <div class="block mt-4">
             <a href="{{ route('auth.social', 'google') }}"
-                class="flex items-center w-full mt-4  bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                class="flex items-center w-full mt-4  bg-white border border-gray-300 rounded-lg shadow-md  px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                 <svg class="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="-0.5 0 48 48" version="1.1">
 
@@ -59,11 +59,11 @@
                     </g>
                 </svg>
                 <span>Continue with Google</span>
-            </a>
+            </a></div>
 
-
+           <div class="block mt-4">
             <a href="{{ route('auth.social', 'linkedin-openid') }}"
-                class="flex items-center w-full mt-4  bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                class="flex items-center w-full mt-4  bg-white border border-gray-300 rounded-lg shadow-md  px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                 <svg class="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 -2 44 44" version="1.1">
                     <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -77,9 +77,10 @@
                     </g>
                 </svg> <span>Continue with LinkedIn</span>
             </a>
-
+            </div>
+        <div class="block mt-4">
             <a href="{{ route('auth.social', 'facebook') }}"
-                class="flex items-center w-full mt-4  bg-white border border-gray-300 rounded-lg shadow-md max-w-xs px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                class="flex items-center w-auto mt-4  bg-white border border-gray-300 rounded-lg shadow-md  px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                 <svg class="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 48 48" version="1.1">
                     <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
