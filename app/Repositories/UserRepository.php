@@ -9,7 +9,7 @@ class UserRepository implements UserRepositoryInterface
     
 
     public function getAllUser(){
-        return User::with('cities', 'image')->get();
+        return User::with('cities', 'image')->paginate(5);
     }
     public function getUserById($id){
         return User::find($id);

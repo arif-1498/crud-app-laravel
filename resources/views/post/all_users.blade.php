@@ -43,6 +43,47 @@
       @endforeach
     </tbody>
   </table>
+
+  <div class="max-w-4xl mx-auto p-4">
+  <!-- Statistics -->
+  <div class="flex justify-between items-center mb-4 text-gray-700 text-sm">
+    <div>
+      Showing <span class="font-semibold">{{ $users->firstItem() }}</span> to 
+      <span class="font-semibold">{{ $users->lastItem() }}</span> of 
+      <span class="font-semibold">{{ $users->total() }}</span> users
+    </div>
+    <div class="flex items-center space-x-2">
+      @if($users->onFirstPage())
+        <button class="px-3 py-1 bg-gray-200 rounded cursor-not-allowed" disabled>Prev</button>
+      @else
+        <a href="{{ $users->previousPageUrl() }}" class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">Prev</a>
+      @endif
+
+      @if($users->hasMorePages())
+        <a href="{{ $users->nextPageUrl() }}" class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">Next</a>
+      @else
+        <button class="px-3 py-1 bg-gray-200 rounded cursor-not-allowed" disabled>Next</button>
+      @endif
+    </div>
+  </div>
+
+  <!-- Pagination Numbers -->
+  <div class="flex justify-center space-x-1">
+    @foreach ($users->getUrlRange(1, $users->lastPage()) as $page => $url)
+      @if($page == $users->currentPage())
+        <span class="px-3 py-1 rounded border border-gray-300 bg-blue-500 text-white">{{ $page }}</span>
+      @else
+        <a href="{{ $url }}" class="px-3 py-1 rounded border border-gray-300 bg-white hover:bg-gray-100">{{ $page }}</a>
+      @endif
+    @endforeach
+  </div>
+</div>
+
+  
+  
+</div>
+
+  
 </div>
 
 

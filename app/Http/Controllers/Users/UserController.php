@@ -24,6 +24,7 @@ class UserController extends Controller
     
     public function index( ){
         $users=$this->userService->getAllUser();
+       
          return view("post.all_users",compact("users"));
     }
     
