@@ -27,6 +27,7 @@ class PostController extends Controller
     {  
         
         $posts=$post->getAllPost();
+       
          return view("post.index", compact('posts'));
     }
     public function create()
