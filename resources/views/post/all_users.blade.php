@@ -15,9 +15,9 @@
       </tr>
     </thead>
     <tbody class="bg-white divide-y divide-gray-200">
-      @foreach($users as $user)
+      @foreach($users as $key=>$user)
       <tr class=" bg-indigo-50 hover:bg-gray-50">
-        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ $user->id }}</td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ $users->firstItem()+$key}}</td>
         
         
         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 flex items-center gap-3">
