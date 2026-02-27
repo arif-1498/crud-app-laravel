@@ -7,8 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Fonts -->
-
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link rel="preconnect" href="https://fonts.bunny.net">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.min.css">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
 
@@ -52,20 +53,23 @@
         </main>
     </div>
 
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.7/js/dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
-    <script>
-       $(document).ready(function () {
-    $('.select2').select2({
-        width: '100%',
-        placeholder: "Select cities",
-        maximumSelectionLength: 3  // maximum 3 selections
-    });
-});
-    </script>
-
+    <script type="module">
+       
+        $(document).ready(function () {
+            $('.select2').select2({
+                width: '100%',
+                placeholder: "Select cities",
+                maximumSelectionLength: 3  // maximum 3 selections
+            });
+        });
+        </script>
+        @yield('scripts')
 </body>
 
 </html>

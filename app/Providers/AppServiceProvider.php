@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\facade\SearchUser;
 use App\Models\User;
 use Log;
+use Uri\WhatWg\Url;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       
+       if( str_ends_with(request()->getHost(), '.ngrok-free.dev')){
+        \URL::forceScheme('https');
+       }
     }
 }

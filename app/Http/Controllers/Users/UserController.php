@@ -11,39 +11,49 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
 use App\Services\UserService;
 use App\Services\FileUploadService;
+use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
 {
-     protected $userService;
-     protected $uploadFileService;
+    protected $userService;
+    protected $uploadFileService;
 
-     public function __construct(UserService $userService, FileUploadService $fileUploadService){
-         $this->userService=$userService;
-         $this->uploadFileService=$fileUploadService;
-     }
-    
-    public function index( ){
-        $users=$this->userService->getAllUser();
-       
-         return view("post.all_users",compact("users"));
+    public function __construct(UserService $userService, FileUploadService $fileUploadService)
+    {
+        $this->userService = $userService;
+        $this->uploadFileService = $fileUploadService;
     }
-    
-    public function edit($id){
-        $users=$this->userService->getUserById($id);
-        $cities=City::all();
-        return view("user.complete_profile",compact("users","cities"));
+
+    public function index(Request $request)
+    {
+        
+        if ($request->ajax()) {
+           
+           $users= User::query();
+            return DataTables::eloquent($users)->make(true);
+        }
+        return view('post.all_users');
     }
-    public function update(UpdateUserRequest $request, $id){
-        $user= $this->userService->getUserById($id);
-        $imageNewName=$this->uploadFileService->uploadFile($request, 'image', 'profile_images');
+
+    public function edit($id)
+    {
+        $users = $this->userService->getUserById($id);
+        $cities = City::all();
+        return view("user.complete_profile", compact("users", "cities"));
+    }
+    public function update(UpdateUserRequest $request, $id)
+    {
+        $user = $this->userService->getUserById($id);
+        $imageNewName = $this->uploadFileService->uploadFile($request, 'image', 'profile_images');
         $user->update($request->all());
-        $user->cities()->sync($request->cities?:[]);
-        $user->image()->create(['name'=>$imageNewName]);
+        $user->cities()->sync($request->cities ?: []);
+        $user->image()->create(['name' => $imageNewName]);
         return redirect()->route('dashboard')->with('success', 'Data successfully updated')->withInput();
-    }   
+    }
 
-    public function destroy( $id){
-        $user= $this->userService->getUserById($id);
+    public function destroy($id)
+    {
+        $user = $this->userService->getUserById($id);
         $user->delete();
         return redirect()->route('dashboard')->with('success', 'Data successfully deleted');
     }
