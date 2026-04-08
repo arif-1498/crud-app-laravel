@@ -55,7 +55,7 @@
 
       </div>
 
-      <form action="{{ route('comment.store') }}" method="post" class="mt-6">
+      <form  action="{{ route('comment.store') }}" method="post" class="mt-6 commentForm">
         @csrf
 
         <input type="hidden" name="post_id" value="{{ $post->id }}">
@@ -71,8 +71,16 @@
     </div>
   @endforeach
 
+<script>
+const commentForm = document.querySelector('.commentForm');
+commentForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  console.log("form is submitted");
+  })
+ 
 
 
 
-
+</script>
 @endsection

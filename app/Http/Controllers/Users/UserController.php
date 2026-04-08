@@ -26,11 +26,12 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        
+       
         if ($request->ajax()) {
-           
+          
            $users= User::query();
             return DataTables::eloquent($users)->make(true);
+            
         }
         return view('post.all_users');
     }

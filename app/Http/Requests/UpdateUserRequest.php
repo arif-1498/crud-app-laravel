@@ -22,10 +22,6 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
 
-
-
-       
-       
         $user_id = request()->id;
         return [
             'name' => 'string|max:255',
